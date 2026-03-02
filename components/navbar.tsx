@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
+import { ThemeToggle } from "./theme-toggle"
 
 const navLinks = [
   { label: "Sobre mi", href: "#about" },
@@ -51,14 +52,18 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-foreground md:hidden"
-          aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
-        >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 md:gap-4">
+          <ThemeToggle />
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-foreground md:hidden"
+            aria-label={mobileOpen ? "Cerrar menu" : "Abrir menu"}
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

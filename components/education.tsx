@@ -103,12 +103,17 @@ export function Education() {
 
         {/* Track selector */}
         <div className="relative mb-10 grid grid-cols-3 gap-2">
-          <div className={`absolute left-0 top-0 h-full w-1/3 bg-primary rounded-md transition-all ${activeTrack === "academica" ? "" : activeTrack === "bootcamp" ? "translate-x-full" : "translate-x-[200%]"}`} />
+          <div className={`absolute left-0 top-0 h-full w-1/3 bg-primary rounded-md transition-all 
+            ${activeTrack === "academica"
+              ? ""
+              : activeTrack === "bootcamp"
+                ? "translate-x-full"
+                : "translate-x-[200%]"}`} />
           {tracks.map((track) => (
             <button
               key={track.key}
               onClick={() => setActiveTrack(track.key)}
-              className={`relative rounded-lg px-1 sm:px-5 py-2 text-sm transition-all cursor-pointer ${activeTrack === track.key ? "text-black font-extrabold" : "text-primary"}`}
+              className={`relative rounded-lg px-1 sm:px-5 py-2 text-sm transition-all cursor-pointer ${activeTrack === track.key ? "text-background font-extrabold" : "text-primary"}`}
             >
               {track.label}
               {/* {activeTrack === track.key && (
@@ -143,7 +148,7 @@ export function Education() {
                     </p>
                   </div>
                   <span
-                    className={`flex-shrink-0 rounded-full px-3 py-1 font-mono text-xs ${item.status === "En curso"
+                    className={`shrink-0 rounded-full px-3 py-1 font-mono text-xs ${item.status === "En curso"
                       ? "bg-primary/15 text-primary"
                       : item.status === "Continuo"
                         ? "bg-primary/15 text-primary"
@@ -157,7 +162,7 @@ export function Education() {
                 <div className="grid gap-2 sm:grid-cols-2">
                   {item.highlights.map((h) => (
                     <div key={h} className="flex items-start gap-2.5">
-                      <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
                       <span className="text-sm leading-relaxed text-muted-foreground">
                         {h}
                       </span>

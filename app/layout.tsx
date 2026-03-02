@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Luis Chrestia | Frontend Developer',
+  title: 'Luis Chrestia | Fullstack Developer',
   description:
-    'Frontend Developer especializado en React y Next.js. Construyo aplicaciones rapidas, escalables y optimizadas para SEO con foco en experiencia real de usuario.',
+    'Fullstack Developer especializado en React, Next.js y Node.js. Construyo aplicaciones rapidas, escalables y optimizadas para SEO con foco en experiencia real de usuario.',
   icons: {
     icon: [
       {
@@ -42,11 +43,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

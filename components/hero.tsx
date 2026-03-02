@@ -103,7 +103,7 @@ export function Hero() {
         </div>
 
         {/* Right: Photo */}
-        <div className="relative flex-shrink-0">
+        <div className="relative shrink-0">
           <div className="relative">
             {/* Glow ring behind photo */}
             <div className="absolute -inset-1 rounded-full bg-primary/20 blur-xl" />
@@ -112,7 +112,7 @@ export function Hero() {
             <div className="relative h-56 w-56 overflow-hidden rounded-full border-2 border-border sm:h-64 sm:w-64 lg:h-72 lg:w-72">
               <Image
                 src="/photo.webp"
-                alt="Luis Chrestia - Frontend Developer"
+                alt="Luis Chrestia - Fullstack Developer"
                 fill
                 className="object-cover"
                 priority

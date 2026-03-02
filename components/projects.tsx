@@ -132,7 +132,7 @@ function ProjectCard({ project }: { project: Project }) {
                     key={i}
                     className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
-                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
                     {d}
                   </li>
                 ))}
@@ -148,7 +148,7 @@ function ProjectCard({ project }: { project: Project }) {
                     key={i}
                     className="flex items-start gap-2 text-sm text-muted-foreground"
                   >
-                    <span className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary" />
                     {r}
                   </li>
                 ))}
