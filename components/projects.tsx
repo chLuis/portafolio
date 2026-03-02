@@ -98,7 +98,7 @@ function ProjectCard({ project }: { project: Project }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
-    <div className="group rounded-xl border border-border bg-card transition-colors hover:border-primary/30">
+    <div className="group rounded-xl border border-border bg-card transition-colors hover:border-exalted">
       <div className="p-6">
         <h3 className="mb-3 text-xl font-semibold text-foreground">
           {project.title}

@@ -33,8 +33,8 @@ export function Contact() {
           Hablemos
         </h2>
         <p className="mx-auto mb-12 max-w-lg text-base leading-relaxed text-muted-foreground">
-          Si tenes un proyecto en mente, una oportunidad laboral o simplemente
-          queres conversar sobre tecnologia, escribime.
+          Si tenés un proyecto en mente, una oportunidad laboral o simplemente
+          querés conversar sobre tecnología, escribime.
         </p>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">

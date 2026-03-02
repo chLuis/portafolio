@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { SectionHeading } from "./section-heading"
 
-type TrackKey = "academica" | "bootcamp" | "autodidacta"
+type TrackKey = "academica" | "cursos" | "autodidacta"
 
 interface TrackItem {
   title: string
@@ -22,25 +22,25 @@ interface Track {
 const tracks: Track[] = [
   {
     key: "academica",
-    label: "Academica",
+    label: "Universidad",
     tagline: "La base que me dio criterio tecnico",
     items: [
       {
         title: "Técnico Universitario en Programación",
-        institution: "UTN FRT",
+        institution: "Universidad Tecnológica Nacional - Facultad Regional Tucumán",
         status: "Completado",
         highlights: [
           "Algoritmos, estructuras de datos y complejidad computacional",
           "Bases de datos relacionales y modelado de datos",
-          "Ingenieria de software y metodologias de desarrollo",
-          "Paradigmas de programacion: imperativo, OOP y funcional",
+          "Ingeniería de software y metodologías de desarrollo",
+          "Paradigmas de programación: imperativo, OOP y funcional",
         ],
       },
     ],
   },
   {
-    key: "bootcamp",
-    label: "Bootcamps",
+    key: "cursos",
+    label: "Cursos",
     tagline: "Formacion intensiva orientada a produccion",
     items: [
       {
@@ -59,10 +59,10 @@ const tracks: Track[] = [
         institution: "Rolling Code School",
         status: "Completado",
         highlights: [
-          "Arquitectura de APIs REST y buenas practicas",
-          "Autenticacion, autorizacion y seguridad",
-          "Bases de datos avanzadas y optimizacion de queries",
-          "Testing e integracion continua",
+          "Arquitectura de APIs REST y buenas prácticas",
+          "Autenticación, autorización y seguridad",
+          "Bases de datos avanzadas y optimización de queries",
+          "Testing e integración continua",
         ],
       },
     ],
@@ -75,12 +75,14 @@ const tracks: Track[] = [
       {
         title: "Cursos especializados en Udemy",
         institution: "Udemy",
-        status: "Continuo",
+        status: "Contínuo",
         highlights: [
           "React avanzado: patterns, performance y arquitectura",
-          "Next.js App Router, SSR, ISR y optimizacion",
+          "Next.js App Router, SSR, ISR y optimización",
           "TypeScript estricto aplicado a proyectos reales",
-          "Tailwind CSS y sistemas de diseno",
+          "Tailwind CSS y sistemas de diseño",
+          "N8N y automatizaciones",
+          "Diseño UX/UI"
         ],
       },
     ],
@@ -93,12 +95,12 @@ export function Education() {
   const current = tracks.find((t) => t.key === activeTrack)!
 
   return (
-    <section className="px-2 sm:px-6 py-28">
+    <section id="education" className="px-2 sm:px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           label="Formacion"
           title="Rutas de aprendizaje"
-          description="No sigo un camino lineal. Combino formacion academica, bootcamps intensivos y aprendizaje autodidacta orientado a resolver problemas reales."
+          description="No sigo un camino lineal. Combino formacion academica, cursos intensivos y aprendizaje autodidacta orientado a resolver problemas reales."
         />
 
         {/* Track selector */}
@@ -106,15 +108,16 @@ export function Education() {
           <div className={`absolute left-0 top-0 h-full w-1/3 bg-primary rounded-md transition-all 
             ${activeTrack === "academica"
               ? ""
-              : activeTrack === "bootcamp"
+              : activeTrack === "cursos"
                 ? "translate-x-full"
                 : "translate-x-[200%]"}`} />
           {tracks.map((track) => (
             <button
               key={track.key}
               onClick={() => setActiveTrack(track.key)}
-              className={`relative rounded-lg px-1 sm:px-5 py-2 text-sm transition-all cursor-pointer ${activeTrack === track.key ? "text-background font-extrabold" : "text-primary"}`}
+              className={`relative rounded-lg px-1 sm:px-5 py-2 text-sm transition-all flex justify-center cursor-pointer ${activeTrack === track.key ? "text-background font-extrabold" : "text-primary group"}`}
             >
+              <div className="absolute bottom-0 h-px group-hover:border-b w-0 border-primary group-hover:animate-hover-grow" />
               {track.label}
               {/* {activeTrack === track.key && (
                 <span className="absolute -bottom-px left-1/2 h-px w-8 -translate-x-1/2 bg-primary" />
@@ -150,7 +153,7 @@ export function Education() {
                   <span
                     className={`shrink-0 rounded-full px-3 py-1 font-mono text-xs ${item.status === "En curso"
                       ? "bg-primary/15 text-primary"
-                      : item.status === "Continuo"
+                      : item.status === "Contínuo"
                         ? "bg-primary/15 text-primary"
                         : "border border-border text-muted-foreground"
                       }`}

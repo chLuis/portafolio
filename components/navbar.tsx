@@ -6,11 +6,12 @@ import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
 
 const navLinks = [
-  { label: "Sobre mi", href: "#about" },
-  { label: "Stack", href: "#stack" },
-  { label: "Proyectos", href: "#projects" },
-  { label: "Experiencia", href: "#experience" },
-  { label: "Contacto", href: "#contact" },
+  { label: "Sobre mi", href: "/#about" },
+  { label: "Stack", href: "/#stack" },
+  { label: "Proyectos", href: "/#projects" },
+  { label: "Experiencia", href: "/#experience" },
+  { label: "Formación", href: "/#education" },
+  { label: "Contacto", href: "/#contact" },
 ]
 
 export function Navbar() {
@@ -33,7 +34,7 @@ export function Navbar() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between py-4">
         <Link
           href="#"
-          className="font-mono text-sm font-extrabold text-primary"
+          className="text-xl font-extrabold text-exalted"
         >
           LC
         </Link>

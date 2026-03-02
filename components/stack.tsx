@@ -63,14 +63,14 @@ export function Stack() {
         <div className="grid gap-8 md:grid-cols-3">
           {categories.map((cat) => (
             <div key={cat.title}>
-              <h3 className="mb-5 font-mono text-xs tracking-widest text-primary uppercase">
+              <h3 className="mb-5 font-mono text-xs tracking-widest text-exalted uppercase">
                 {cat.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {cat.items.map((tech) => (
                   <span
                     key={tech.name}
-                    className="rounded-md border border-border bg-secondary px-3 py-1.5 text-sm text-secondary-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                    className="rounded-md border border-border bg-secondary px-3 py-1.5 text-sm text-secondary-foreground transition-colors hover:border-exalted hover:text-exalted"
                   >
                     {tech.name}
                   </span>

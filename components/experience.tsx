@@ -55,14 +55,14 @@ export function Experience() {
 
         <div className="relative">
           {/* Central vertical line */}
-          <div className="absolute top-0 bottom-0 left-[18px] w-px bg-gradient-to-b from-primary/60 via-border to-transparent lg:left-1/2 lg:-translate-x-px" />
+          <div className="absolute top-0 bottom-0 left-[18px] w-px bg-linear-to-b from-exalted via-border to-exalted/0 lg:left-1/2 lg:-translate-x-px" />
 
           <div className="flex flex-col gap-10 lg:gap-14">
             {jobs.map((job, index) => {
               const isLeft = index % 2 === 0
 
               return (
-                <div key={job.company} className="relative">
+                <div key={job.company} className="relative group">
                   {/* ---- DESKTOP (lg+): alternating layout ---- */}
                   <div className="hidden lg:grid lg:grid-cols-[1fr_40px_1fr] lg:items-start">
                     {/* Left column */}
@@ -74,8 +74,8 @@ export function Experience() {
 
                     {/* Center dot */}
                     <div className="flex justify-center pt-6">
-                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/40 bg-card shadow-[0_0_12px_rgba(45,212,191,0.15)]">
-                        <Briefcase className="h-4 w-4 text-primary" />
+                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary/40 transition-colors group-hover:border-exalted bg-card shadow-[0_0_12px_rgba(45,212,191,0.15)]">
+                        <Briefcase className="h-4 w-4 text-primary group-hover:text-exalted" />
                       </div>
                     </div>
 
@@ -90,7 +90,7 @@ export function Experience() {
                   {/* ---- MOBILE / TABLET (< lg): left-aligned timeline ---- */}
                   <div className="flex gap-5 lg:hidden">
                     {/* Dot */}
-                    <div className="relative z-10 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border-2 border-primary/40 bg-card shadow-[0_0_12px_rgba(45,212,191,0.15)]">
+                    <div className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-primary/40 bg-card shadow-[0_0_12px_rgba(45,212,191,0.15)]">
                       <Briefcase className="h-3.5 w-3.5 text-primary" />
                     </div>
 
@@ -99,7 +99,7 @@ export function Experience() {
                       <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-1 font-mono text-xs font-medium tracking-wider text-primary">
                         {job.period}
                       </span>
-                      <div className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary/30">
+                      <div className="rounded-xl border border-border bg-card p-5 transition-colors group-hover:border-exalted">
                         <div className="mb-3 flex flex-wrap items-center gap-2">
                           <h3 className="text-base font-semibold text-foreground">
                             {job.company}
@@ -124,9 +124,9 @@ export function Experience() {
 
 function TimelineCard({ job, align }: { job: Job; align: "left" | "right" }) {
   return (
-    <div className={`pt-2 ${align === "right" ? "text-right" : "text-left"}`}>
+    <div className={`pt-2 mx-2 ${align === "right" ? "text-right" : "text-left"}`}>
       <div
-        className={`inline-block w-full rounded-xl border border-border bg-card p-6 text-left transition-colors hover:border-primary/30`}
+        className={`inline-block w-full rounded-xl border border-border bg-card p-6 text-left transition-colors group-hover:border-exalted`}
       >
         <div className="mb-3 flex flex-wrap items-center gap-2">
           <h3 className="text-lg font-semibold text-foreground">
@@ -152,7 +152,7 @@ function TimelinePeriod({
       className={`flex items-start pt-6 ${align === "right" ? "justify-end pr-2" : "justify-start pl-2"
         }`}
     >
-      <span className="rounded-full bg-primary/10 px-4 py-1.5 font-mono text-sm font-medium tracking-wider text-primary">
+      <span className="rounded-full bg-primary/10 px-4 py-1.5 font-mono text-sm font-medium tracking-wider text-primary group-hover:text-exalted">
         {period}
       </span>
     </div>
@@ -167,7 +167,7 @@ function ImpactList({ items }: { items: string[] }) {
           key={i}
           className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground"
         >
-          <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-primary" />
+          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
           {item}
         </li>
       ))}

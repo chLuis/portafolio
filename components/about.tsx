@@ -4,15 +4,15 @@ import { Code2, Gauge, Layout, Server } from "lucide-react"
 const differentiators = [
   {
     icon: Gauge,
-    title: "Performance & SEO",
+    title: "Optimización & SEO",
     description:
-      "Implementación de SSR, ISR y optimización SEO real para mejorar métricas clave de rendimiento.",
+      "Implementación de SSR, ISR y optimización SEO real para mejorar métricas clave de rendimiento y posicionamiento web.",
   },
   {
     icon: Code2,
     title: "Estado avanzado",
     description:
-      "Manejo de estado complejo con Zustand, persist middleware y patrones escalables.",
+      "Manejo de estado complejo con Zustand, Context API persist middleware y patrones escalables.",
   },
   {
     icon: Layout,
@@ -42,7 +42,7 @@ export function About() {
           {differentiators.map((item) => (
             <div
               key={item.title}
-              className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/30"
+              className="group rounded-xl border border-border bg-card p-6 transition-colors hover:border-exalted"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <item.icon size={20} className="text-primary" />

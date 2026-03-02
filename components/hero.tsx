@@ -18,12 +18,12 @@ export function Hero() {
         {/* Left: Content */}
         <div className="flex-1 text-center md:text-left">
           {/* Status badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-muted-foreground bg-card px-4 py-1.5">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-exalted opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-exalted" />
             </span>
-            <span className="font-mono text-xs text-muted-foreground">
+            <span className="font-mono text-xs text-foreground">
               Disponible para proyectos
             </span>
           </div>
@@ -34,10 +34,10 @@ export function Hero() {
 
           {/* Typewriter role */}
           <div className="mb-6 flex items-center justify-center md:justify-start">
-            <span className="font-mono text-lg text-primary sm:text-xl">
+            <span className="font-mono text-lg text-exalted sm:text-xl">
               Fullstack Developer
             </span>
-            <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-primary" />
+            <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-exalted" />
           </div>
 
           <p className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-muted-foreground md:mx-0 md:text-lg">
@@ -125,7 +125,7 @@ export function Hero() {
               <p className="text-lg font-bold text-foreground">
                 +3{" "}
                 <span className="text-xs font-normal text-muted-foreground">
-                  anios
+                  años
                 </span>
               </p>
             </div>

@@ -42,7 +42,7 @@ export function TechnicalCases() {
           {cases.map((item) => (
             <div
               key={item.title}
-              className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/30"
+              className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-exalted"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <item.icon size={20} className="text-primary" />
