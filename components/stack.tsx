@@ -57,7 +57,7 @@ export function Stack() {
         <SectionHeading
           label="Stack"
           title="Tecnologias"
-          description="Las herramientas con las que trabajo dia a dia para construir productos solidos."
+          description="Las herramientas con las que trabajo día a día para construir productos sólidos."
         />
 
         <div className="grid gap-8 md:grid-cols-3">

@@ -6,25 +6,25 @@ const cases = [
     icon: Bug,
     title: "Sorting incorrecto en React",
     description:
-      "Detecte y resolvi un problema de ordenamiento en listas renderizadas por React donde el estado mutado causaba re-renders incorrectos. La solucion: copias inmutables del array antes de sort().",
+      "Detecté y resolví un problema de ordenamiento en listas renderizadas por React donde el estado mutado causaba re-renders incorrectos. La solución: copias inmutables del array antes de sort().",
   },
   {
     icon: RefreshCw,
     title: "Revalidaciones en Next.js",
     description:
-      "Implemente estrategias de revalidacion (ISR + on-demand) para mantener datos frescos sin sacrificar performance en paginas con alto trafico.",
+      "Implementé estrategias de revalidación (ISR + on-demand) para mantener datos frescos sin sacrificar performance en páginas con alto tráfico.",
   },
   {
     icon: Zap,
-    title: "Optimizacion de carrusel con Embla",
+    title: "Optimización de carrusel con Embla",
     description:
-      "Reduje el bundle size y mejore la fluidez del carrusel usando lazy loading de imagenes y configuracion optimizada de Embla Carousel.",
+      "Reduje el bundle size y mejoré la fluidez del carrusel usando lazy loading de imágenes y configuración optimizada de Embla Carousel.",
   },
   {
     icon: Database,
     title: "Estado persistido con Zustand",
     description:
-      "Disene una solucion de carrito de compras con Zustand persist middleware, manejando hidratacion correcta en SSR para evitar mismatches.",
+      "Diseñé una solución de carrito de compras con Zustand persist middleware, manejando hidratación correcta en SSR para evitar mismatches.",
   },
 ]
 
@@ -33,9 +33,9 @@ export function TechnicalCases() {
     <section className="px-2 sm:px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          label="Casos tecnicos"
+          label="Casos técnicos"
           title="Problemas resueltos"
-          description="Desafios tecnicos concretos que enfrente y como los resolvi. Esto demuestra criterio mas alla del codigo."
+          description="Desafíos técnicos concretos que enfrenté y cómo los resolví. Esto demuestra criterio más allá del código."
         />
 
         <div className="grid gap-6 md:grid-cols-2">
