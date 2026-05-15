@@ -1,18 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { SectionHeading } from "./section-heading"
-import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react"
+import { useState } from "react";
+import { SectionHeading } from "./section-heading";
+import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react";
+import Image from "next/image";
 
 interface Project {
-  title: string
-  context: string
-  role: string
-  stack: string[]
-  decisions: string[]
-  results: string[]
-  demo?: string
-  repo?: string
+  title: string;
+  context: string;
+  role: string;
+  stack: string[];
+  decisions: string[];
+  results: string[];
+  demo?: string;
+  repo?: string;
+  image?: string;
 }
 
 const projects: Project[] = [
@@ -30,9 +32,11 @@ const projects: Project[] = [
     ],
     results: [
       "Reduccion de tiempos de atención al cliente.",
-      "Mejor experiencia de uso para administradores."
+      "Mejor experiencia de uso para administradores.",
     ],
-    demo: "#"
+    demo: "#",
+    repo: undefined,
+    image: "/gestion.webp",
   },
   {
     title: "Sistema de Turnos / Agenda",
@@ -50,8 +54,9 @@ const projects: Project[] = [
       "UX optimizada para dispositivos moviles.",
       "Reduccion del 60% en errores de agendamiento.",
     ],
-    demo: "#",
-    repo: "#",
+    demo: "https://lenguaafuera.com.ar/",
+    repo: undefined,
+    image: "/turnos.webp",
   },
   {
     title: "Ecommerce",
@@ -70,15 +75,23 @@ const projects: Project[] = [
       "Carrito persistido mejorando conversion.",
       "Experiencia mobile impecable.",
     ],
-    demo: "#",
-    repo: "#",
+    demo: "https://lenguaafuera.com.ar/shop",
+    repo: undefined,
+    image: "/ecommerce.webp",
   },
   {
     title: "Dashboard Financiero",
     context:
       "Panel de visualizacion de datos financieros con graficos interactivos, filtros dinamicos y reportes.",
     role: "Desarrollo del dashboard completo con integracion de datos en tiempo real.",
-    stack: ["Next.js", "React", "TypeScript", "Recharts", "Tailwind", "Shadcn/ui"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Recharts",
+      "Tailwind",
+      "Shadcn/ui",
+    ],
     decisions: [
       "Use Recharts para graficos optimizados y accesibles.",
       "Implemente filtros dinamicos con URL search params.",
@@ -89,13 +102,14 @@ const projects: Project[] = [
       "Filtrado eficiente sin recarga de pagina.",
       "Componentes reutilizables para futuros dashboards.",
     ],
-    demo: "#",
-    repo: "#",
+    demo: undefined,
+    repo: undefined,
+    image: "/dashboard.webp",
   },
-]
+];
 
 function ProjectCard({ project }: { project: Project }) {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <div className="group rounded-xl border border-border bg-card transition-colors hover:border-exalted">
@@ -154,6 +168,17 @@ function ProjectCard({ project }: { project: Project }) {
                 ))}
               </ul>
             </div>
+            {project.image && (
+              <div>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={660}
+                  height={460}
+                  className="rounded-md"
+                />
+              </div>
+            )}
           </div>
         )}
 
@@ -161,7 +186,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="mt-4 flex items-center justify-between">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="inline-flex items-center gap-1 text-sm text-primary transition-opacity hover:opacity-80"
+            className="cursor-pointer inline-flex items-center gap-1 text-sm text-primary transition-opacity hover:opacity-80"
           >
             {expanded ? "Ver menos" : "Ver detalles"}
             {expanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
@@ -179,7 +204,7 @@ function ProjectCard({ project }: { project: Project }) {
                 <ExternalLink size={16} />
               </a>
             )}
-            {project.repo && (
+            {project?.repo && (
               <a
                 href={project.repo}
                 target="_blank"
@@ -194,7 +219,7 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export function Projects() {
@@ -214,5 +239,5 @@ export function Projects() {
         </div>
       </div>
     </section>
-  )
+  );
 }

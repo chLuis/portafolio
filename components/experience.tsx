@@ -10,12 +10,23 @@ interface Job {
 
 const jobs: Job[] = [
   {
+    company: "Thecnium Developers",
+    role: "Fullstack Developer",
+    period: "03/2026 - 05/2026",
+    impact: [
+      "Desarrollo de aplicaciones web para el área de medicina con React, Next.js y Convex.",
+      "Suba de archivos necesarios por cada usuario a la nube",
+      "Ajustes UI conforme a lo desarrollado por el equipo de diseño.",
+      "Implementacion de un sistema de autenticacion con Clerk."
+    ],
+  },
+  {
     company: "Pigmalion Software",
     role: "Fullstack Developer",
     period: "06/2025 - 12/2025",
     impact: [
       "Desarrollo de aplicaciones web con React y Next.js.",
-      "Optimizacion de rendimiento y experiencia de usuario.",
+      "Optimización de rendimiento y experiencia de usuario.",
     ],
   },
   {
@@ -55,7 +66,7 @@ export function Experience() {
 
         <div className="relative">
           {/* Central vertical line */}
-          <div className="absolute top-0 bottom-0 left-[18px] w-px bg-linear-to-b from-exalted via-border to-exalted/0 lg:left-1/2 lg:-translate-x-px" />
+          <div className="absolute top-0 bottom-0 left-4.5 w-px bg-linear-to-b from-exalted via-border to-exalted/0 lg:left-1/2 lg:-translate-x-px" />
 
           <div className="flex flex-col gap-10 lg:gap-14">
             {jobs.map((job, index) => {

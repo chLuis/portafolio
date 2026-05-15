@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative flex min-h-screen items-center px-6">
       {/* Background glow */}
       <div
-        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full opacity-[0.06]"
+        className="pointer-events-none absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-150 w-150 rounded-full opacity-[0.06]"
         style={{
           background:
             "radial-gradient(circle, oklch(0.75 0.15 175) 0%, transparent 70%)",
@@ -37,7 +37,7 @@ export function Hero() {
             <span className="font-mono text-lg text-exalted sm:text-xl">
               Fullstack Developer
             </span>
-            <span className="ml-1 inline-block h-6 w-[2px] animate-pulse bg-exalted" />
+            <span className="ml-1 inline-block h-6 w-0.5 animate-pulse bg-exalted" />
           </div>
 
           <p className="mx-auto mb-8 max-w-lg text-base leading-relaxed text-muted-foreground md:mx-0 md:text-lg">
@@ -62,7 +62,7 @@ export function Hero() {
               Contactar
             </Link>
             <Link
-              href="https://drive.google.com/file/d/1O2Zxa60--lhCllmv8skuEBvneyTdOQ1D/view?usp=sharing"
+              href="https://drive.google.com/file/d/1HR_QBBBDgCK2MJUzcU7lro9568A0Jcv8/view?usp=sharing"
               className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-primary/40"
               target="_blank"
               rel="noopener noreferrer"

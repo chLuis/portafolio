@@ -14,14 +14,83 @@ const navLinks = [
   { label: "Contacto", href: "/#contact" },
 ]
 
+const getSectionId = (href: string) => href.replace("/#", "")
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState(navLinks[0].href)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.getElementById(getSectionId(link.href)))
+      .filter((section): section is HTMLElement => section !== null)
+
+    if (!sections.length) {
+      return
+    }
+
+    const updateFromHash = () => {
+      const hash = window.location.hash
+
+      if (!hash) {
+        return
+      }
+
+      const matchingLink = navLinks.find((link) => link.href.endsWith(hash))
+
+      if (matchingLink) {
+        setActiveSection(matchingLink.href)
+      }
+    }
+
+    updateFromHash()
+
+    const updateActiveSection = () => {
+      const offset = 140
+      const scrollPosition = window.scrollY + offset
+
+      const currentSection = sections.find((section, index) => {
+        const sectionTop = section.offsetTop
+        const sectionBottom = sectionTop + section.offsetHeight
+        const isLastSection = index === sections.length - 1
+
+        if (isLastSection) {
+          return scrollPosition >= sectionTop
+        }
+
+        return scrollPosition >= sectionTop && scrollPosition < sectionBottom
+      })
+
+      if (!currentSection) {
+        return
+      }
+
+      const matchingLink = navLinks.find(
+        (link) => getSectionId(link.href) === currentSection.id,
+      )
+
+      if (matchingLink) {
+        setActiveSection(matchingLink.href)
+      }
+    }
+
+    updateActiveSection()
+    window.addEventListener("scroll", updateActiveSection)
+    window.addEventListener("resize", updateActiveSection)
+    window.addEventListener("hashchange", updateFromHash)
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection)
+      window.removeEventListener("resize", updateActiveSection)
+      window.removeEventListener("hashchange", updateFromHash)
+    }
   }, [])
 
   return (
@@ -45,7 +114,11 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                aria-current={activeSection === link.href ? "page" : undefined}
+                className={`text-sm transition-colors ${activeSection === link.href
+                  ? "font-semibold text-primary"
+                  : "text-muted-foreground hover:text-primary"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -75,8 +148,12 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-current={activeSection === link.href ? "page" : undefined}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  className={`block rounded-md px-3 py-3 text-sm transition-colors ${activeSection === link.href
+                    ? "bg-primary/10 font-semibold text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                    }`}
                 >
                   {link.label}
                 </Link>
