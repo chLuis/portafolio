@@ -10,7 +10,7 @@ interface Job {
 
 const jobs: Job[] = [
   {
-    company: "Thecnium Developers",
+    company: "Technium Developers",
     role: "Fullstack Developer",
     period: "03/2026 - 05/2026",
     impact: [
